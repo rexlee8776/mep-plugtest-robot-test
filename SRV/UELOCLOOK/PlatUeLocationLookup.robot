@@ -26,7 +26,7 @@ TC_MEC_SRV_UELOCLOOK_001_OK
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get list of user equipments    zoneId    ${ZONE_ID}
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    userInfo
+    Check HTTP Response Body Json Schema Is    UserInfo
     Check Result Contains    ${response['body']['userInfo']}    zoneId    ${ZONE_ID}
 
 

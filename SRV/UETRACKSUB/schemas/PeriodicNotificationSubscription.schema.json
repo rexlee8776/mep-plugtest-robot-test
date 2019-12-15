@@ -1,0 +1,99 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://example.com/object1575044234.json", 
+	"title": "Root", 
+	"type": "object",
+	"required": [
+		"periodicNotificationSubscription"
+	],
+	"properties": {
+		"periodicNotificationSubscription": {
+			"$id": "#root/periodicNotificationSubscription", 
+			"title": "Periodicnotificationsubscription", 
+			"type": "object",
+			"required": [
+				"address",
+				"callbackReference",
+				"clientCorrelator",
+				"frequency",
+				"requestedAccuracy"
+			],
+			"properties": {
+				"address": {
+					"$id": "#root/periodicNotificationSubscription/address", 
+					"title": "Address", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"acr:10.0.0.1"
+					],
+					"pattern": "^.*$"
+				},
+				"callbackReference": {
+					"$id": "#root/periodicNotificationSubscription/callbackReference", 
+					"title": "Callbackreference", 
+					"type": "object",
+					"required": [
+						"callbackData",
+						"notifyURL"
+					],
+					"properties": {
+						"callbackData": {
+							"$id": "#root/periodicNotificationSubscription/callbackReference/callbackData", 
+							"title": "Callbackdata", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"0123"
+							],
+							"pattern": "^.*$"
+						},
+						"notifyURL": {
+							"$id": "#root/periodicNotificationSubscription/callbackReference/notifyURL", 
+							"title": "Notifyurl", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"http://clientApp.example.com/location_notifications/123456"
+							],
+							"pattern": "^.*$"
+						}
+					}
+				}
+,
+				"clientCorrelator": {
+					"$id": "#root/periodicNotificationSubscription/clientCorrelator", 
+					"title": "Clientcorrelator", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"0123"
+					],
+					"pattern": "^.*$"
+				},
+				"frequency": {
+					"$id": "#root/periodicNotificationSubscription/frequency", 
+					"title": "Frequency", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"10"
+					],
+					"pattern": "^.*$"
+				},
+				"requestedAccuracy": {
+					"$id": "#root/periodicNotificationSubscription/requestedAccuracy", 
+					"title": "Requestedaccuracy", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"10"
+					],
+					"pattern": "^.*$"
+				}
+			}
+		}
+
+	}
+}

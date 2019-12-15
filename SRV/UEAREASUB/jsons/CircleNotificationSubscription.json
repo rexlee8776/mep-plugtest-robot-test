@@ -1,5 +1,4 @@
 {
-	"circleNotificationSubscription": {
 		"address": "acr:10.0.0.1",
 		"callbackReference": {
 			"callbackData": "1234",
@@ -13,5 +12,4 @@
 		"longitude": "41.277306",
 		"radius": "500",
 		"trackingAccuracy": "10"
-	}
 }

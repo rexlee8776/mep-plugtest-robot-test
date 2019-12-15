@@ -24,7 +24,7 @@ TC_MEC_SRV_UEINFOLOOK_001_OK
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get list of users with filter    address    ${ACR_ADDRESS}
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    userList
+    Check HTTP Response Body Json Schema Is    UserList
 
 
 TC_MEC_SRV_UEINFOLOOK_001_BR

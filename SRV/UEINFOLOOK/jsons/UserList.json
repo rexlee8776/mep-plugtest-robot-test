@@ -1,0 +1,19 @@
+{
+	"user":[
+		{
+			"address":"acr:192.0.2.1",
+			"accessPointId":"",
+			"zoneId":"",
+          "resourceURL":"http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription1",
+			"locationInfo":{
+				"latitude":0.0,
+				"longitude":0.0,
+				"altitude":0.0,
+				"accuracy":0.0
+			},
+			"contextLocationInfo":"",
+			"ancillaryInfo":""
+		}
+	],
+	"resourceURL":"http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription1"
+}
