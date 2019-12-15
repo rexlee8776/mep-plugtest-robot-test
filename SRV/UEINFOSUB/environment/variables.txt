@@ -12,7 +12,7 @@ ${apiVersion}     v2
 # Specific variables
 ${ZONAL_TRAF_SUB_CLIENT_ID}            0123
 ${ZONAL_TRAF_NOTIF_CALLBACK_URI}       {"notifyURL": "http://clientApp.example.com/location_notifications/123456"}
-${ZONAL_TRAF_ZONE_ID}                  zone01
+${ZONAL_TRAF_ZONE_ID}                  zone1
 
 ${SUBSCRIPTION_ID}                    e0deee2b-6e50-4f33-ab09-8bf0585025d3
 ${NON_EXISTENT_SUBSCRIPTION_ID}       NON_EXISTENT_SUBSCRIPTION_ID

@@ -13,7 +13,7 @@ Default Tags    TC_MEC_SRV_UELOCSUB
 
 
 *** Variables ***
-
+${response}
 
 *** Test Cases ***
 

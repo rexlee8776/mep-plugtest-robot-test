@@ -11,4 +11,6 @@ ${apiVersion}     v2
 
 # Specific variables
 ${ZONE_ID}                zone01
+${USER_ID}                ue1
+${NON_EXISTENT_USER_ID}   NON_EXISTENT_USER_ID
 ${NON_EXISTENT_ZONE_ID}   NON_EXISTENT_ZONE_ID

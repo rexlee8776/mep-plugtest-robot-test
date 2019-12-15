@@ -25,7 +25,7 @@ TC_MEC_SRV_RLOCLOOK_001_OK
     Get the access points list        ${ZONE_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    AccessPointList
-    Check Result Contains    ${response['body']['accessPointList']}    zoneId    ${ZONE_ID}
+    Should Be Equal As Strings    ${response['body']['accessPointList']['zoneId']}	${ZONE_ID}
 
 
 TC_MEC_SRV_RLOCLOOK_001_NF

@@ -26,9 +26,8 @@ TC_MEC_SRV_UEAREASUB_001_OK
     Create new subscription    CircleNotificationSubscription
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    CircleNotificationSubscription
-    Check Result Contains    ${response['body']['circleNotificationSubscription']}    clientCorrelator    ${UEAREASUB_CLIENT_ID} 
-    Check Result Contains    ${response['body']['circleNotificationSubscription']}    callbackReference    ${APP_UEAREASUB_CALLBACK_URI}
-    Check Result Contains    ${response['body']['circleNotificationSubscription']}    address    ${IP_ADDRESS}
+    Should Be Equal As Strings    ${response['body']['circleNotificationSubscription']['callbackReference']}        ${APP_UEAREASUB_CALLBACK_URI}
+    Should Be Equal As Strings    ${response['body']['circleNotificationSubscription']['address']}    ${IP_ADDRESS}
     
 
 

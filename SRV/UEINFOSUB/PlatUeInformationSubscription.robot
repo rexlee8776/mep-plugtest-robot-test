@@ -25,9 +25,8 @@ TC_MEC_SRV_UEINFOSUB_001_OK
     Create new subscription    ZonalTrafficSubscription
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    ZonalTrafficSubscription
-    Check Result Contains    ${response['body']['zonalTrafficSubscription']}    clientCorrelator    ${ZONAL_TRAF_SUB_CLIENT_ID}
-    Check Result Contains    ${response['body']['zonalTrafficSubscription']}    callbackReference    ${ZONAL_TRAF_NOTIF_CALLBACK_URI}
-    Check Result Contains    ${response['body']['zonalTrafficSubscription']}    zoneId    ${ZONAL_TRAF_ZONE_ID}
+    Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['callbackReference']}        ${ZONAL_TRAF_NOTIF_CALLBACK_URI}
+    Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['zoneId']}        ${ZONAL_TRAF_ZONE_ID}
 
 
 TC_MEC_SRV_UEINFOSUB_001_BR
@@ -55,7 +54,7 @@ TC_MEC_SRV_UEINFOSUB_002_OK
     Check HTTP Response Status Code Is    204
 
 
-TC_MEC_SRV_UEDISTSUB_002_NF
+TC_MEC_SRV_UEINFOSUB_002_NF
     [Documentation]
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
