@@ -91,6 +91,7 @@ Get list of user equipments
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
 
+
 Get specific user equipments
     [Arguments]    ${userId}
     Set Headers    {"Accept":"application/json"}
