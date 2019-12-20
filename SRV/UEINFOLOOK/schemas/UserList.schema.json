@@ -1,93 +1,169 @@
 {
-      "description": "A type containing list of users.",
-      "type": "object",
-      "required": [
-        "resourceURL"
-      ],
-      "properties": {
-        "user": {
-          "description": "Collection of the zone information list.",
-          "type": "array",
-          "items": {
-            "description": "A type containing user information.",
-            "type": "object",
-            "required": [
-              "address",
-              "accessPointId",
-              "zoneId",
-              "resourceURL"
-            ],
-            "properties": {
-              "address": {
-                "description": "Address of user (e.g. \"sip\" URI, \"tel\" URI, \"acr\" URI).",
-                "type": "string",
-                "format": "uri",
-                "example": "acr:192.0.2.1"
-              },
-              "accessPointId": {
-                "description": "Identifier of access point, <E-CGI><Cell Portion ID> (reference ETSI TS 129 171). Where the E-CGI is made up of the PLMN and Cell Identity (28 bit string). Then the PLMN is made up of the 3 digit MCC & 2 or 3 digit MNC. The Cell Portion is an optional element",
-                "type": "string",
-                "example": "001010000000000000000000000000001"
-              },
-              "zoneId": {
-                "description": "Identifier of zone",
-                "type": "string",
-                "example": "zone01"
-              },
-              "resourceURL": {
-                "description": "Self referring URL.",
-                "type": "string",
-                "format": "uri",
-                "example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
-              },
-              "locationInfo": {
-                "description": "A type containing location information with latitude, longitude and altitude, in addition the accuracy of the information are provided.",
-                "type": "object",
-                "required": [
-                  "latitude",
-                  "longitude",
-                  "accuracy"
-                ],
-                "properties": {
-                  "latitude": {
-                    "type": "number",
-                    "format": "float",
-                    "example": "80.123"
-                  },
-                  "longitude": {
-                    "type": "number",
-                    "format": "float",
-                    "example": "70.123"
-                  },
-                  "altitude": {
-                    "type": "number",
-                    "format": "float",
-                    "example": "10.0"
-                  },
-                  "accuracy": {
-                    "type": "integer",
-                    "format": "int32",
-                    "example": "10"
-                  }
-                }
-              },
-              "contextLocationInfo": {
-                "description": "Contextual information of a user location (e.g., aisle, floor, room number, etc.)",
-                "type": "string",
-                "example": "GroundFloor"
-              },
-              "ancillaryInfo": {
-                "description": "Reserved for future use.",
-                "type": "string"
-              }
-            }
-          }
-        },
-        "resourceURL": {
-          "description": "Self referring URL.",
-          "type": "string",
-          "format": "uri",
-          "example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
-        }
-      }
-    }
+	"description": "A type containing list of users.",
+	"type": "object",
+	"required": [
+		"resourceURL"
+	],
+	"properties": {
+		"user": {
+			"description": "Collection of the zone information list.",
+			"type": "array",
+			"items": {
+				"properties": {
+					"accessPointId": {
+						"description": "The identity of the access point the user is currently on, see note 1.",
+						"type": "string",
+						"x-etsi-mec-cardinality": "1",
+						"x-etsi-mec-origin-type": "String"
+					},
+					"address": {
+						"description": "Address of user (e.g. 'sip' URI, 'tel' URI, 'acr' URI) currently on the access point, see note 1.",
+						"format": "uri",
+						"type": "string",
+						"x-etsi-mec-cardinality": "1",
+						"x-etsi-mec-origin-type": "AnyURI"
+					},
+					"ancillaryInfo": {
+						"description": "Reserved for future use.",
+						"type": "string",
+						"x-etsi-mec-cardinality": "0..1",
+						"x-etsi-mec-origin-type": "String"
+					},
+					"contextLocationInfo": {
+						"description": "Contextual information of a user location (e.g. aisle, floor, room number, etc.).",
+						"type": "string",
+						"x-etsi-mec-cardinality": "0..1",
+						"x-etsi-mec-origin-type": "String"
+					},
+					"locationInfo": {
+						"properties": {
+							"accuracy": {
+								"type": "number"
+							},
+							"accuracyAltitude": {
+								"type": "number"
+							},
+							"accuracySemiMinor": {
+								"type": "number"
+							},
+							"altitude": {
+								"description": "Location altitude relative to the WGS84 ellipsoid surface.",
+								"type": "number",
+								"x-etsi-mec-cardinality": "0..1",
+								"x-etsi-mec-origin-type": "Float"
+							},
+							"confidence": {
+								"type": "number"
+							},
+							"includedAngle": {
+								"type": "number"
+							},
+							"innerRadius": {
+								"type": "number"
+							},
+							"latitude": {
+								"description": "Location latitude, expressed in the range -90° to +90°. Cardinality greater than one only if \"shape\" equals 7.",
+								"items": {
+									"type": "number"
+								},
+								"type": "array",
+								"x-etsi-mec-cardinality": "1..N",
+								"x-etsi-mec-origin-type": "Float"
+							},
+							"longitude": {
+								"description": "Location longitude, expressed in the range -180° to +180°. Cardinality greater than one only if \"shape\" equals 7.",
+								"items": {
+									"type": "number"
+								},
+								"type": "array",
+								"x-etsi-mec-cardinality": "1..N",
+								"x-etsi-mec-origin-type": "Float"
+							},
+							"offsetAngle": {
+								"type": "number"
+							},
+							"orientationMajorAxis": {
+								"type": "number"
+							},
+							"shape": {
+								"description": "Shape information, as detailed in [14], associated with the reported location coordinate:\n1 = Ellipsoid_Arc\n2 = ellipsoid_Point\n3 = ellipsoid_Point_Altitude\n4 = ellipsoid_Point_Altitude_Uncert_Ellipsoid\n5 = ellipsoid_Point_Uncert_Circle\n6 = ellipsoid_Point_Uncert_Ellipse\n7 = polygon",
+								"enum": [
+									"ELLIPSOID_ARC",
+									"ELLIPSOID_POINT",
+									"ELLIPSOID_POINT_ALTITUDE",
+									"ELLIPSOID_POINT_ALTITUDE_UNCERT_ELLIPSOID",
+									"ELLIPSOID_POINT_UNCERT_CIRCLE",
+									"ELLIPSOID_POINT_UNCERT_ELLIPSE",
+									"POLYGON"
+								],
+								"type": "string",
+								"x-etsi-mec-cardinality": "1",
+								"x-etsi-mec-origin-type": "Enum (inlined)"
+							},
+							"uncertaintyRadius": {
+								"type": "number"
+							},
+							"velocity": {
+								"description": "Structure with attributes relating to the target entity’s velocity, as defined in [14].",
+								"type": "object",
+								"x-etsi-mec-cardinality": "0..1",
+								"x-etsi-mec-origin-type": "Structure (inlined)"
+							}
+						},
+						"required": [
+							"latitude",
+							"longitude",
+							"shape"
+						],
+						"type": "object",
+						"x-etsi-ref": "6.5.3"
+					},
+					"resourceURL": {
+						"description": "Self-referring URL, see note 1.",
+						"type": "string",
+						"x-etsi-mec-cardinality": "1",
+						"x-etsi-mec-origin-type": "String"
+					},
+					"timeStamp": {
+						"properties": {
+							"nanoSeconds": {
+								"type": "number"
+							},
+							"seconds": {
+								"type": "number"
+							}
+						},
+						"required": [
+							"seconds",
+							"nanoSeconds"
+						],
+						"type": "object",
+						"x-etsi-ref": "6.5.2"
+					},
+					"zoneId": {
+						"description": "The identity of the zone the user is currently within, see note 1.",
+						"type": "string",
+						"x-etsi-mec-cardinality": "1",
+						"x-etsi-mec-origin-type": "String"
+					}
+				},
+				"required": [
+					"address",
+					"accessPointId",
+					"zoneId",
+					"resourceURL",
+					"timeStamp"
+				],
+				"type": "object",
+				"x-etsi-notes": ":\tAs specified in [5], clause 5.2.2.7.\nNOTE 2: \tAs specified in [5], clause 5.2.2.5.",
+				"x-etsi-ref": "6.2.2"
+			}
+		},
+		"resourceURL": {
+			"description": "Self referring URL.",
+			"type": "string",
+			"format": "uri",
+			"example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
+		}
+	}
+}
