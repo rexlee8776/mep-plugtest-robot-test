@@ -21,7 +21,7 @@ TC_MEC_SRV_UEINFOLOOK_001_OK
     ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.3
     ...    OpenAPI    https://forge.etsi.org/gitlab/mec/gs013-location-api/blob/master/LocationAPI.yaml#/definitions/UserList
 
-    [Tags]    PIC_MEC_PLAT    PIC_SERVICES
+    [Tags]    PIC_MEC_PLAT    PIC_SERVICES   INCLUDE_UNDEFINED_SCHEMAS
     Get list of users with filter    address    ${ACR_ADDRESS}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    UserList

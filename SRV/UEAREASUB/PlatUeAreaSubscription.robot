@@ -13,7 +13,6 @@ Default Tags    TC_MEC_SRV_UEAREASUB
 
 
 *** Test Cases ***
-
 TC_MEC_SRV_UEAREASUB_001_OK
     [Documentation]
     ...    Check that the IUT acknowledges the UE area change subscription request when
@@ -22,7 +21,7 @@ TC_MEC_SRV_UEAREASUB_001_OK
     ...    Reference    ETSI GS MEC 013 V2.1.1, clause 7.3.11
     ...    OpenAPI    # TODO check this
 
-    [Tags]    PIC_MEC_PLAT    PIC_SERVICES
+    [Tags]    PIC_MEC_PLAT    PIC_SERVICES    INCLUDE_UNDEFINED_SCHEMAS
     Create new subscription    CircleNotificationSubscription
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    CircleNotificationSubscription

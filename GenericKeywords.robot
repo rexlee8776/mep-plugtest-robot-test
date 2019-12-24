@@ -15,7 +15,6 @@ Check HTTP Response Status Code Is
     Log    Status code validated
 
 Check HTTP Response Body Json Schema Is
-    [Tags]    INCLUDE_UNDEFINED_SCHEMAS
     [Arguments]    ${input}
     Should Contain    ${response['headers']['Content-Type']}    application/json
     ${schema} =    Catenate    SEPARATOR=    ${input}    .schema.json

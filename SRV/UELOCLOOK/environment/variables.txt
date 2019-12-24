@@ -1,16 +1,18 @@
 *** Variables ***
 # Generic variables
 ${SCHEMA}                   http
-${HOST}                     10.192.2.172
-${PORT}                     8081
+${HOST}                     10.30.7.120
+${PORT}                     30007
 ${response}                         {}
 ${TOKEN}                            Basic YWxhZGRpbjpvcGVuc2VzYW1l
-${apiRoot}        
+${apiRoot}        etsi-013
 ${apiName}        location
 ${apiVersion}     v2
 
 # Specific variables
-${ZONE_ID}                zone01
+${ZONE_ID}                zone1
+${NON_EXISTENT_ZONE_ID}   NON_EXISTENT_ZONE_ID
+
 ${USER_ID}                ue1
 ${NON_EXISTENT_USER_ID}   NON_EXISTENT_USER_ID
-${NON_EXISTENT_ZONE_ID}   NON_EXISTENT_ZONE_ID
+

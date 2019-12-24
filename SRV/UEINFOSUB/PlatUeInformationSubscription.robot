@@ -25,8 +25,9 @@ TC_MEC_SRV_UEINFOSUB_001_OK
     Create new subscription    ZonalTrafficSubscription
     Check HTTP Response Status Code Is    201
     Check HTTP Response Body Json Schema Is    ZonalTrafficSubscription
-    Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['callbackReference']}        ${ZONAL_TRAF_NOTIF_CALLBACK_URI}
     Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['zoneId']}        ${ZONAL_TRAF_ZONE_ID}
+    Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['clientCorrelator']}    ${ZONAL_TRAF_SUB_CLIENT_ID}
+    Should Be Equal As Strings    ${response['body']['zonalTrafficSubscription']['callbackReference']}        ${ZONAL_TRAF_NOTIF_CALLBACK_URI}
 
 
 TC_MEC_SRV_UEINFOSUB_001_BR
@@ -85,4 +86,5 @@ Remove subscription
     Delete    ${apiRoot}/${apiName}/${apiVersion}/subscriptions/zonalTraffic/${subscriptionId}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
+
 

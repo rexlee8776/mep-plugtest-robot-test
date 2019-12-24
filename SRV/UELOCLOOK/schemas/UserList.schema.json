@@ -1,7 +1,4 @@
 {
-  "type": "object",
-  "properties": {
-    "userList": {
 	"description": "A type containing list of users.",
 	"type": "object",
 	"required": [
@@ -169,6 +166,4 @@
 			"example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
 		}
 	}
-}
-  }
 }

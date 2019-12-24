@@ -4,7 +4,7 @@
 		"callbackReference": {
 			"notifyURL": "http://clientApp.example.com/location_notifications/123456"
 		},
-		"zone": "zone01",
+		"zone": "zone1",
 		"interestRealm": "LA",
 		"userEventCriteria": "Transferring"
 	}
