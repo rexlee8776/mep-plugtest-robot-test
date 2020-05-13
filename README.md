@@ -40,5 +40,7 @@ TODO
 ## How to Report a Bug
 
 The ETSI MEC Testing Framework project is under constant development, so it is possible that you will
-encounter a bug while using it. Please report bugs at cti_support at etsi dot org.
+encounter a bug while using it. You may report in the [Issues section](https://forge.etsi.org/rep/mec/gs032p3-robot-test-suite/issues) of the project.
+
+For any other inquiry, you may contact cti_support at etsi dot org.
 
