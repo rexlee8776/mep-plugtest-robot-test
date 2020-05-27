@@ -1,0 +1,10 @@
+{
+  "subscriptionType": "AppTerminationNotificationSubscription",
+  "callbackReference": "https://somewhere.com/mecAppSuptApi/example",
+  "_links": {
+    "self": {
+      "href": "https://somewhere.com/mecAppSuptApi/example"
+    }
+  },
+  "appInstanceId": "est eiusmod nulla exercitation"
+}

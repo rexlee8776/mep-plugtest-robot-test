@@ -1,0 +1,17 @@
+{
+	"description": "This type represents the information that the MEC application instance indicates to the MEC platform that it is up and running.",
+	"type": "object",
+	"required": [
+		"indication"
+	],
+	"properties": {
+		"indication": {
+			"description": "Indication about the MEC application instance.",
+			"type": "string",
+			"enum": [
+				"READY"
+			],
+			"example": "READY"
+		}
+	}
+}

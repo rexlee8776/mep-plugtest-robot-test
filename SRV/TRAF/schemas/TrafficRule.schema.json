@@ -1,0 +1,235 @@
+{
+  "description": "This type represents the general information of a traffic rule.",
+  "type": "object",
+  "required": [
+    "trafficRuleId",
+    "filterType",
+    "priority",
+    "trafficFilter",
+    "action",
+    "state"
+  ],
+  "properties": {
+    "trafficRuleId": {
+      "description": "Identify the traffic rule.",
+      "type": "string",
+      "example": "TrafficRule1"
+    },
+    "filterType": {
+      "description": "Definition of filter per FLOW or PACKET. If flow the filter match UE->EPC packet and the reverse packet is handled in the same context",
+      "type": "string",
+      "enum": [
+        "FLOW",
+        "PACKET"
+      ],
+      "example": "FLOW"
+    },
+    "priority": {
+      "description": "Priority of this traffic rule. If traffic rule conflicts, the one with higher priority take precedence",
+      "type": "integer",
+      "format": "uint32",
+      "example": 1
+    },
+    "trafficFilter": {
+      "type": "array",
+      "items": {
+        "description": "This type represents the traffic filter.",
+        "type": "object",
+        "properties": {
+          "srcAddress": {
+            "description": "An IP address or a range of IP address. For IPv4, the IP address could be an IP address plus mask, or an individual IP address, or a range of IP addresses. For IPv6, the IP address could be an IP prefix, or a range of IP prefixes.",
+            "type": "array",
+            "items": {
+              "description": "Identify the traffic ip address.",
+              "type": "string",
+              "example": "192.168.1.1"
+            }
+          },
+          "dstAddress": {
+            "description": "An IP address or a range of IP address. For IPv4, the IP address could be an IP address plus mask, or an individual IP address, or a range of IP addresses. For IPv6, the IP address could be an IP prefix, or a range of IP prefixes.",
+            "type": "array",
+            "items": {
+              "description": "Identify the traffic ip address.",
+              "type": "string",
+              "example": "192.168.1.1"
+            }
+          },
+          "srcPort": {
+            "description": "A port or a range of ports",
+            "type": "array",
+            "items": {
+              "description": "A port",
+              "type": "string",
+              "example": "8080"
+            }
+          },
+          "dstPort": {
+            "description": "A port or a range of ports",
+            "type": "array",
+            "items": {
+              "description": "A port",
+              "type": "string",
+              "example": "8080"
+            }
+          },
+          "protocol": {
+            "description": "Specify the protocol of the traffic filter",
+            "type": "array",
+            "items": {
+              "description": "Protocol of the traffic filter",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "token": {
+            "description": "Used for token based traffic rule",
+            "type": "array",
+            "items": {
+              "description": "Used for token based traffic rule",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "srcTunnelAddress": {
+            "description": "Used for GTP tunnel based traffic rule",
+            "type": "array",
+            "items": {
+              "description": "Used for GTP tunnel based traffic rule",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "tgtTunnelAddress": {
+            "description": "Used for GTP tunnel based traffic rule",
+            "type": "array",
+            "items": {
+              "description": "Used for GTP tunnel based traffic rule",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "srcTunnelPort": {
+            "description": "Used for GTP tunnel based traffic rule",
+            "type": "array",
+            "items": {
+              "description": "Used for GTP tunnel based traffic rule",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "dstTunnelPort": {
+            "description": "Used for GTP tunnel based traffic rule",
+            "type": "array",
+            "items": {
+              "description": "Used for GTP tunnel based traffic rule",
+              "type": "string",
+              "example": "?"
+            }
+          },
+          "qCI": {
+            "description": "Used to match all packets that have the same Quality Class Indicator (QCI).",
+            "type": "integer",
+            "format": "uint32",
+            "example": 1
+          },
+          "dSCP": {
+            "description": "Used to match all IPv4 packets that have the same Differentiated Services Code Point (DSCP)",
+            "type": "integer",
+            "format": "uint32",
+            "example": 0
+          },
+          "tC": {
+            "description": "Used to match all IPv6 packets that have the same Traffic Class.",
+            "type": "integer",
+            "format": "uint32",
+            "example": 1
+          }
+        }
+      }
+    },
+    "action": {
+      "description": "The action of the MEC host data plane when a packet matches the trafficFilter\n   ",
+      "type": "string",
+      "enum": [
+        "DROP",
+        "FORWARD_DECAPSULATED",
+        "FORWARD_ENCAPSULATED",
+        "PASSTHROUGH",
+        "DUPLICATE_DECAPSULATED",
+        "DUPLICATE_ENCAPSULATED"
+      ],
+      "example": "DROP"
+    },
+    "dstInterface": {
+      "description": "This type represents the destination interface. If the action is FORWARD_DECAPSULATED, FORWARD_ENCAPSULATED or PASSTHROUGH one value shall be provided. If the action is DUPLICATE_DECAPSULATED or DUPLICATE_ENCAPSULATED, two values shall be provided. If the action is DROP, no value shall be provided.",
+      "type": "object",
+      "required": [
+        "interfaceType"
+      ],
+      "properties": {
+        "interfaceType": {
+          "description": "Type of the interface",
+          "type": "string",
+          "enum": [
+            "TUNNEL",
+            "MAC",
+            "IP"
+          ],
+          "example": "TUNNEL"
+        },
+        "tunnelInfo": {
+          "description": "This type represents the tunnel information.",
+          "type": "object",
+          "required": [
+            "tunnelType"
+          ],
+          "properties": {
+            "tunnelType": {
+              "description": "This type represents the tunnel information.",
+              "type": "string",
+              "enum": [
+                "GTP_U",
+                "GRE"
+              ],
+              "example": "GTP_U"
+            },
+            "tunnelDstAddress": {
+              "description": "Destination address of the tunnel",
+              "type": "string",
+              "example": "?"
+            },
+            "tunnelSrcAddress": {
+              "description": "Source address of the tunnel",
+              "type": "string",
+              "example": "?"
+            }
+          }
+        },
+        "srcMacAddress": {
+          "description": "Source address identifies the MAC address of the interface",
+          "type": "string",
+          "example": "02-00-00-00-00-00"
+        },
+        "dstMacAddress": {
+          "description": "Source address identifies the MAC address of the interface",
+          "type": "string",
+          "example": "02-00-00-00-00-00"
+        },
+        "dstIpAddress": {
+          "description": "IP address of the remote destination",
+          "type": "string",
+          "example": "192.0.2.0"
+        }
+      }
+    },
+    "state": {
+      "description": "Contains the traffic rule state. This attribute may be updated using HTTP PUT method",
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "example": "ACTIVE"
+    }
+  }
+}

@@ -11,11 +11,12 @@ ${apiVersion}     v1
 
 # Specific variables
 ${APP_INSTANCE_ID}                       5abe4782-2c70-4e47-9a4e-0ee3a1a0fd1f
-${DNS_RULE_ID}                           e0deee2b-6e50-4f33-ab09-8bf0585025d3
-${NON_ESISTENT_DNS_RULE_ID}              NON_ESISTENT_DNS_RULE_ID
-${INVALID_ETAG}                     INVALID_ETAG
+${NON_ESISTENT_APP_INSTANCE_ID}            NON_ESISTENT_APP_INSTANCE_ID
+# ${DNS_RULE_ID}                           e0deee2b-6e50-4f33-ab09-8bf0585025d3
+# ${NON_ESISTENT_DNS_RULE_ID}              NON_ESISTENT_DNS_RULE_ID
+# ${INVALID_ETAG}                     INVALID_ETAG
 
-${SOME_IP_ADDRESS}                   146.241.7.3
+# ${SOME_IP_ADDRESS}                   146.241.7.3
 
 # ${SUBSCRIPTION_TYPE}                MobilityProcedureSubscription
 # ${SUBSCRIPTION_ID}                  e0deee2b-6e50-4f33-ab09-8bf0585025d3
