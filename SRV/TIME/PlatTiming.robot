@@ -19,8 +19,8 @@ TC_MEC_SRV_TIME_001_OK
     ...    Check that the IUT responds with timing capabilities
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.5.3.1
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TimingCaps
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.5.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TimingCaps
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get time capabilities
@@ -33,8 +33,8 @@ TC_MEC_SRV_TIME_002_OK
     ...    Check that the IUT responds with current time
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.6.3.1
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/CurrentTime
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.6.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/CurrentTime
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get current time

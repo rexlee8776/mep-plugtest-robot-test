@@ -1,0 +1,49 @@
+{
+	"description": "This type represents the information that the MEC platform notifies the subscribed application instance about  the corresponding application instance termination/stop.",
+	"type": "object",
+	"required": [
+		"subscriptionType",
+		"callbackReference",
+		"_links",
+		"appInstanceId"
+	],
+	"properties": {
+		"subscriptionType": {
+			"description": "Shall be set to AppTerminationNotificationSubscription.",
+			"type": "string",
+			"example": "AppTerminationNotificationSubscription"
+		},
+		"callbackReference": {
+			"description": "URI selected by the MEC application instance to receive notifications on the subscribed MEC application instance management information. This shall be included in both the request and the response.",
+			"type": "string",
+			"format": "uri"
+		},
+		"_links": {
+			"description": "Self-referring URI.",
+			"type": "object",
+			"required": [
+				"self"
+			],
+			"properties": {
+				"self": {
+					"description": "This type represents a type of link and may be referenced from data structures",
+					"type": "object",
+					"properties": {
+						"href": {
+							"description": "URI referring to a resource",
+							"type": "string",
+							"format": "uri",
+							"example": "/mecAppSuptApi/example"
+						}
+					}
+				}
+			},
+			"readOnly": true
+		},
+		"appInstanceId": {
+			"description": "It is used as the filtering criterion for the subscribed events.",
+			"type": "string",
+			"example": "ID1"
+		}
+	}
+}

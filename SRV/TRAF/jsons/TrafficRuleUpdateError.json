@@ -1,0 +1,134 @@
+{
+  "trafficRuleId": "elit sint id occaecat mollit",
+  "filterType": "FLOW",
+  "priority": 1,
+  "trafficFilter": [
+    {
+      "srcAddress": [
+        "magna tempor do",
+        "nisi reprehenderit veniam adipisicing",
+        "sed ut tempor voluptate esse",
+        "consectetur magna culpa"
+      ],
+      "dstAddress": [
+        "dolor dolore",
+        "Excepteur ut aliquip"
+      ],
+      "srcPort": [
+        "et anim",
+        "nulla in minim ea cillum",
+        "ipsum sunt quis qui Ut"
+      ],
+      "dstPort": [
+        "dolore tempor ut voluptate dolor",
+        "consequat incididunt ad sed mollit",
+        "in amet aute non"
+      ],
+      "protocol": [
+        "mollit Duis",
+        "irure ullamco Lorem ex tempor",
+        "ullamco in dolor incididunt",
+        "elit ea ad",
+        "magna officia et ad"
+      ],
+      "token": [
+        "occaecat",
+        "reprehenderit esse",
+        "enim ipsum Lorem",
+        "nulla ad sed deserunt",
+        "irure"
+      ],
+      "srcTunnelAddress": [
+        "ut exercitation",
+        "ea",
+        "magna et"
+      ],
+      "tgtTunnelAddress": [
+        "et anim aliqua",
+        "dolor in sint consectetur culpa",
+        "eu",
+        "deserunt qui mollit sint commodo"
+      ],
+      "srcTunnelPort": [
+        "dolore laborum",
+        "consequat",
+        "nostrud nulla",
+        "est id dolore commodo aliquip",
+        "qui dolor id dolore"
+      ],
+      "dstTunnelPort": [
+        "Ut nostrud Excepteur",
+        "dolor culpa",
+        "in",
+        "incididunt"
+      ],
+      "qCI": 22902321,
+      "dSCP": -86264428,
+      "tC": -40655175
+    },
+    {
+      "srcAddress": [
+        "incididunt sit qui",
+        "laborum dolore voluptate exercitation",
+        "ut"
+      ],
+      "dstAddress": [
+        "pariatur sunt",
+        "id elit aute ut",
+        "voluptate",
+        "irure laboris consectetur ullamco id",
+        "reprehenderit laborum"
+      ],
+      "srcPort": [
+        "nisi tempor ut in",
+        "culpa sed"
+      ],
+      "dstPort": [
+        "amet laboris exercitation voluptate veniam"
+      ],
+      "protocol": [
+        "incididunt sint Lorem qui"
+      ],
+      "token": [
+        "sunt",
+        "veniam labore quis dolor",
+        "Ut ex esse deserunt"
+      ],
+      "srcTunnelAddress": [
+        "cillum irure incididunt adipisicing",
+        "Duis officia laboris ea dolor"
+      ],
+      "tgtTunnelAddress": [
+        "eu deserunt et",
+        "cupidatat proident Excepteur nisi",
+        "consequat fugiat Lorem adipisicing"
+      ],
+      "srcTunnelPort": [
+        "velit Lorem cillum ex",
+        "consectetur in ad",
+        "officia est adipisicing irure aute"
+      ],
+      "dstTunnelPort": [
+        "proident velit Lorem labore do",
+        "magna sit sed ea",
+        "cillum",
+        "nostrud"
+      ],
+      "qCI": -69609374,
+      "dSCP": 46042141,
+      "tC": 67400065
+    }
+  ],
+  "action": "UNKNOWN_VALUE",
+  "state": "ACTIVE",
+  "dstInterface": {
+    "interfaceType": "TUNNEL",
+    "tunnelInfo": {
+      "tunnelType": "GTP_U",
+      "tunnelDstAddress": "est",
+      "tunnelSrcAddress": "culpa nostrud amet labore"
+    },
+    "srcMacAddress": "esse",
+    "dstMacAddress": "ut nostrud voluptate ipsum cupidatat"
+  }
+}

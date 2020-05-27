@@ -1,0 +1,127 @@
+{
+        "description": "This type represents the information provided by the MEC platform in response to the Timing capabilities Query message.",
+        "type": "object",
+        "properties": {
+          "timeStamp": {
+            "description": "time",
+            "type": "object",
+            "required": [
+              "nanoSeconds",
+              "seconds"
+            ],
+            "properties": {
+              "seconds": {
+                "type": "integer",
+                "format": "uint32",
+                "description": "The seconds part of the time. Time is defined as Unix-time since January 1, 1970, 00:00:00 UTC",
+                "example": 1577836800
+              },
+              "nanoSeconds": {
+                "type": "integer",
+                "format": "uint32",
+                "description": "The nanoseconds part of the time. Time is defined as Unix-time since January 1, 1970, 00:00:00 UTC",
+                "example": 0
+              }
+            }
+          },
+          "ntpServers": {
+            "description": "Available NTP servers",
+            "type": "array",
+            "items": {
+              "description": "NTP server detail.",
+              "type": "object",
+              "required": [
+                "ntpServerAddrType",
+                "ntpServerAddr",
+                "minPollingInterval",
+                "maxPollingInterval",
+                "localPriority",
+                "authenticationOption",
+                "authenticationKeyNum"
+              ],
+              "properties": {
+                "ntpServerAddrType": {
+                  "description": "Address type of NTP server",
+                  "type": "string",
+                  "enum": [
+                    "IP_ADDRESS",
+                    "DNS_NAME"
+                  ],
+                  "example": "IP_ADDRESS"
+                },
+                "ntpServerAddr": {
+                  "description": "NTP server address",
+                  "type": "string",
+                  "example": "192.0.2.0"
+                },
+                "minPollingInterval": {
+                  "description": "Minimum poll interval for NTP messages, in seconds as a power of two. Range 3...17",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 3
+                },
+                "maxPollingInterval": {
+                  "description": "Maximum poll interval for NTP messages, in seconds as a power of two. Range 3...17",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 17
+                },
+                "localPriority": {
+                  "description": "NTP server local priority",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 1
+                },
+                "authenticationOption": {
+                  "description": "NTP authentication option",
+                  "type": "string",
+                  "enum": [
+                    "NONE",
+                    "SYMMETRIC_KEY",
+                    "AUTO_KEY"
+                  ],
+                  "example": "NONE"
+                },
+                "authenticationKeyNum": {
+                  "description": "Authentication key number",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 1
+                }
+              }
+            }
+          },
+          "ptpMasters": {
+            "description": "Available PTP Masters",
+            "type": "array",
+            "items": {
+              "description": "NTP server detail.",
+              "type": "object",
+              "required": [
+                "ptpMasterIpAddress",
+                "ptpMasterLocalPriority",
+                "delayReqMaxRate"
+              ],
+              "properties": {
+                "ptpMasterIpAddress": {
+                  "description": "PTP Master IP Address",
+                  "type": "string",
+                  "example": "192.0.2.0"
+                },
+                "ptpMasterLocalPriority": {
+                  "description": "PTP Master local priority",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 1
+                },
+                "delayReqMaxRate": {
+                  "description": "Acceptable maximum rate of the Delay_Req messages in packets per second",
+                  "type": "integer",
+                  "format": "uint32",
+                  "example": 10
+                }
+              }
+            }
+          }
+        }
+      }

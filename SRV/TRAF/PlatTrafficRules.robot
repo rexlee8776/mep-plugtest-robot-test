@@ -18,8 +18,8 @@ TC_MEC_SRV_TRAF_001_OK
     ...    Check that the IUT responds with a list of available traffic rules
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.7.3.1
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.7.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get list of traffic rules    ${APP_INSTANCE_ID}
@@ -44,14 +44,14 @@ TC_MEC_SRV_TRAF_002_OK
     ...    Check that the IUT responds with the information on a specific traffic rule
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.8.3.1
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.8.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get individual traffic rule    ${APP_INSTANCE_ID}    ${TRAFFIC_RULE_ID}
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    TrafficRule
-    Check Result Contains    ${response['body']['TrafficRule']}    trafficRuleId    ${TRAFFIC_RULE_ID}
+    Check Result Contains    ${response['body']}    trafficRuleId    ${TRAFFIC_RULE_ID}
 
 
 TC_MEC_SRV_TRAF_003_OK
@@ -59,15 +59,15 @@ TC_MEC_SRV_TRAF_003_OK
     ...    Check that the IUT updates a specific traffic rule
     ...    when commanded by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.8.3.2
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.8.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Update a traffic rule    ${APP_INSTANCE_ID}    ${TRAFFIC_RULE_ID}    TrafficRuleUpdate
     Check HTTP Response Status Code Is    200
     Check HTTP Response Body Json Schema Is    TrafficRule
-    Check Result Contains    ${response['body']['TrafficRule']}    trafficRuleId    ${TRAFFIC_RULE_ID} 
-    Check Result Contains    ${response['body']['TrafficRule']}    action    "DROP"
+    Check Result Contains    ${response['body']}    trafficRuleId    ${TRAFFIC_RULE_ID} 
+    Check Result Contains    ${response['body']}    action    "DROP"
 
 
 TC_MEC_SRV_TRAF_003_BR
@@ -75,8 +75,8 @@ TC_MEC_SRV_TRAF_003_BR
     ...    Check that the IUT responds with an error when
     ...    a request with incorrect parameters is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.8.3.2
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.8.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Update a traffic rule    ${APP_INSTANCE_ID}    ${TRAFFIC_RULE_ID}    TrafficRuleUpdateError
@@ -88,8 +88,8 @@ TC_MEC_SRV_TRAF_003_NF
     ...    Check that the IUT responds with an error when
     ...    a request for an unknown URI is sent by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.8.3.2
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.8.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Update a traffic rule    ${APP_INSTANCE_ID}    ${NON_EXISTENT_TRAFFIC_RULE_ID}    TrafficRuleUpdate
@@ -101,8 +101,8 @@ TC_MEC_SRV_TRAF_003_PF
     ...    Check that the IUT responds with an error when
     ...    a request sent by a MEC Application doesn't comply with a required condition
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 7.2.8.3.2
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TrafficRule
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 7.2.8.3.2
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecAppSupportApi.yaml#/definitions/TrafficRule
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Update a traffic rule with invalid etag   ${APP_INSTANCE_ID}    ${TRAFFIC_RULE_ID}    TrafficRuleUpdate
@@ -132,7 +132,7 @@ Update a traffic rule
     Set Headers    {"Authorization":"${TOKEN}"}
     ${file}=    Catenate    SEPARATOR=    jsons/    ${content}    .json
     ${body}=    Get File    ${file}
-    Post    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/traffic_rules/${trafficRuleId}    ${body}
+    PUT    ${apiRoot}/${apiName}/${apiVersion}/applications/${appInstanceId}/traffic_rules/${trafficRuleId}    ${body}
     ${output}=    Output    response
     Set Suite Variable    ${response}    ${output}
     

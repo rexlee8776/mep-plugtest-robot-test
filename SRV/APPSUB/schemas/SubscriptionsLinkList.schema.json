@@ -1,0 +1,54 @@
+{
+        "description": "This type represents a list of links related to currently existing subscriptions for a MEC application instance. This information is returned when sending a request to receive current subscriptions.",
+        "type": "object",
+        "required": [
+          "_links"
+        ],
+        "properties": {
+          "_links": {
+            "description": "Self-referring URI.",
+            "type": "object",
+            "required": [
+              "self"
+            ],
+            "properties": {
+              "self": {
+                "description": "This type represents a type of link and may be referenced from data structures",
+                "type": "object",
+                "properties": {
+                  "href": {
+                    "description": "URI referring to a resource",
+                    "type": "string",
+                    "format": "uri",
+                    "example": "/mecAppSuptApi/example"
+                  }
+                }
+              },
+              "subscriptions": {
+                "description": "The MEC application instance's subscriptions",
+                "type": "array",
+                "items": {
+                  "description": "A link to a subscription.",
+                  "type": "object",
+                  "required": [
+                    "href",
+                    "rel"
+                  ],
+                  "properties": {
+                    "href": {
+                      "description": "URI referring to a resource",
+                      "type": "string",
+                      "format": "uri",
+                      "example": "/mecAppSuptApi/example"
+                    },
+                    "rel": {
+                      "description": "The values shall be set to AppTerminationNotificationSubscription.",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
