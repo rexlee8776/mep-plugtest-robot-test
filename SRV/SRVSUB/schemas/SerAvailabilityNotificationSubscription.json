@@ -1,0 +1,134 @@
+{
+	"description": "This type represents a subscription to the notifications from the  MEC platform regarding the availability of a MEC service or a list of MEC services.",
+	"type": "object",
+	"required": [
+		"subscriptionType",
+		"callbackReference",
+		"_links"
+	],
+	"properties": {
+		"subscriptionType": {
+			"description": "Shall be set to SerAvailabilityNotificationSubscription.",
+			"type": "string",
+			"example": "SerAvailabilityNotificationSubscription"
+		},
+		"callbackReference": {
+			"description": "URI selected by the MEC application instance to receive notifications on the subscribed MEC service availability information. This shall be included in both the request and the response.",
+			"type": "string",
+			"format": "uri"
+		},
+		"_links": {
+			"description": "Self-referring URI.",
+			"type": "object",
+			"required": [
+				"self"
+			],
+			"properties": {
+				"self": {
+					"description": "This type represents a type of link and may be referenced from data structures",
+					"type": "object",
+					"properties": {
+						"href": {
+							"description": "URI referring to a resource",
+							"type": "string",
+							"format": "uri",
+							"example": "/mecSerMgmtApi/example"
+						}
+					}
+				}
+			},
+			"readOnly": true
+		},
+		"filteringCriteria": {
+			"description": "Filtering criteria to match services for which events are requested to be reported. If absent, matches all services. All child attributes are combined with the logical  \"AND\" operation.",
+			"type": "object",
+			"not": {
+				"required": [
+					"serInstanceIds",
+					"serNames",
+					"serCategories"
+				]
+			},
+			"properties": {
+				"serInstanceIds": {
+					"description": "Identifiers of service instances about which to report events.",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"description": "Identifier of the service instance assigned by the MEC platform.",
+						"type": "string",
+						"readOnly": true,
+						"example": "ServiceInstance123"
+					}
+				},
+				"serNames": {
+					"description": "Names of services about which to report events.",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"description": "The name of the service. This is how the service producing MEC application identifies the service instance it produces.",
+						"type": "string",
+						"example": "ExampleService"
+					}
+				},
+				"serCategories": {
+					"description": "Categories of services about which to report events.",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"description": "This type represents the category reference",
+						"type": "object",
+						"required": [
+							"href",
+							"id",
+							"name",
+							"version"
+						],
+						"properties": {
+							"href": {
+								"description": "Reference of the catalogue",
+								"type": "string",
+								"format": "uri",
+								"example": "/example/catalogue1"
+							},
+							"id": {
+								"description": "Unique identifier of the category",
+								"type": "string",
+								"example": "id12345"
+							},
+							"name": {
+								"description": "Name of the category, example values include RNI, Location & Bandwidth Management",
+								"type": "string",
+								"example": "RNI"
+							},
+							"version": {
+								"description": "Category version",
+								"type": "string",
+								"example": "version1"
+							}
+						}
+					}
+				},
+				"states": {
+					"description": "States of the services about which to report events. If the event is  a state change, this filter represents the state after the change.",
+					"type": "array",
+					"minItems": 0,
+					"items": {
+						"description": "This enumeration defines the possible states of a service.",
+						"type": "string",
+						"enum": [
+							"ACTIVE",
+							"INACTIVE"
+						],
+						"example": "ACTIVE"
+					}
+				},
+				"isLocal": {
+					"description": "Indicate whether the service is located in the same locality (as defined by scopeOfLocality) as the consuming MEC application.",
+					"type": "boolean",
+					"example": true
+				}
+			}
+		}
+	}
+}

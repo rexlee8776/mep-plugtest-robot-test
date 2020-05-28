@@ -18,17 +18,8 @@ ${SERVICE_ID}                       e0deee2b-6e50-4f33-ab09-8bf0585025d3
 ${NON_EXISTENT_SERVICE_ID}          NON_EXISTENT_SERVICE_ID
 ${INVALID_ETAG}                     INVALID_ETAG
 
-# ${SUBSCRIPTION_TYPE}                MobilityProcedureSubscription
-# ${SUBSCRIPTION_ID}                  e0deee2b-6e50-4f33-ab09-8bf0585025d3
-# ${NON_EXISTENT_SUBSCRIPTION_ID}     NON_EXISTENT_SUBSCRIPTION_ID
-# ${NON_EXISTENT_APP_MOBILITY_SERVICE_ID}     NON_EXISTENT_APP_MOBILITY_SERVICE_ID
+## this parameter should be the same as in jsons/ServiceInfo.json on param serName
+${NEW_SERVICE_NAME}                NEW_SERVICE_NAME
 
-# # Notifications variables
-# ${MOCK_SERVER_JAR}    ../../../bin/mockserver-netty-5.5.0-jar-with-dependencies.jar
-
-# ${callback_port}    9091
-# ${callback_uri}    http://172.22.1.7:${callback_port}
-# ${callback_endpoint}    /amsi/subscriptions
-# ${callback_endpoint_error}    /subs_404
-# ${total_polling_time}   2 min
-# ${polling_interval}     10 sec
+## this parameter should be the same as in jsons/ServiceInfoUpdated.json on param sversion
+${SVC_NEW_VERSION}                 v2.0

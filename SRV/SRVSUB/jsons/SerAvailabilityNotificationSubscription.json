@@ -1,0 +1,9 @@
+{
+  "subscriptionType": "SerAvailabilityNotificationSubscription",
+  "callbackReference": "http://127.0.0.1/subscribe",
+  "_links": {
+    "self": {
+      "href": "http://127.0.0.1/subscribe"
+    }
+  }
+}

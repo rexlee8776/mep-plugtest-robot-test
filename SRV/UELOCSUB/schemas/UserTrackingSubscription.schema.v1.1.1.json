@@ -1,0 +1,77 @@
+{
+	"definitions": {},
+	"$schema": "http://json-schema.org/draft-07/schema#", 
+	"$id": "https://example.com/object1575044080.json", 
+	"title": "Root", 
+	"type": "object",
+	"required": [
+		"userTrackingSubscription"
+	],
+	"properties": {
+		"userTrackingSubscription": {
+			"$id": "#root/userTrackingSubscription", 
+			"title": "Usertrackingsubscription", 
+			"type": "object",
+			"required": [
+				"clientCorrelator",
+				"callbackReference",
+				"address",
+				"userEventCriteria"
+			],
+			"properties": {
+				"clientCorrelator": {
+					"$id": "#root/userTrackingSubscription/clientCorrelator", 
+					"title": "Clientcorrelator", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"0123"
+					],
+					"pattern": "^.*$"
+				},
+				"callbackReference": {
+					"$id": "#root/userTrackingSubscription/callbackReference", 
+					"title": "Callbackreference", 
+					"type": "object",
+					"required": [
+						"notifyURL"
+					],
+					"properties": {
+						"notifyURL": {
+							"$id": "#root/userTrackingSubscription/callbackReference/notifyURL", 
+							"title": "Notifyurl", 
+							"type": "string",
+							"default": "",
+							"examples": [
+								"http://clientApp.example.com/location_notifications/123456"
+							],
+							"pattern": "^.*$"
+						}
+					}
+				}
+,
+				"address": {
+					"$id": "#root/userTrackingSubscription/address", 
+					"title": "Address", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"acr:10.0.0.1"
+					],
+					"pattern": "^.*$"
+				},
+				"userEventCriteria": {
+					"$id": "#root/userTrackingSubscription/userEventCriteria", 
+					"title": "Usereventcriteria", 
+					"type": "string",
+					"default": "",
+					"examples": [
+						"Transferring"
+					],
+					"pattern": "^.*$"
+				}
+			}
+		}
+
+	}
+}

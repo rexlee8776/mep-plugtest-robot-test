@@ -18,8 +18,8 @@ TC_MEC_SRV_TRANS_001_OK
     ...    Check that the IUT responds with a list of available transports
     ...    when queried by a MEC Application
     ...
-    ...    Reference    ETSI GS MEC 011 V2.0.9, clause 8.2.5.3.1
-    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/v2.0.8/Mp1.yaml#/definitions/TransportInfo
+    ...    Reference    ETSI GS MEC 011 V2.1.1, clause 8.2.5.3.1
+    ...    OpenAPI    https://forge.etsi.org/rep/mec/gs011-app-enablement-api/blob/master/MecServiceMgmtApi.yaml#/definitions/TransportInfo
 
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get list of available transports

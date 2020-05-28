@@ -1,0 +1,171 @@
+{
+  "type": "array",
+  "objects": {
+    "description": "This type represents the general information of a MEC service.",
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "type",
+      "protocol",
+      "version",
+      "endpoint",
+      "security"
+    ],
+    "properties": {
+      "id": {
+        "description": "The identifier of this transport",
+        "type": "string",
+        "example": "TransId12345"
+      },
+      "name": {
+        "description": "The name of this transport",
+        "type": "string",
+        "example": "REST"
+      },
+      "description": {
+        "description": "Human-readable description of this transport",
+        "type": "string",
+        "example": "REST API"
+      },
+      "type": {
+        "description": "The enumeration TransportType represents types of transports",
+        "type": "string",
+        "enum": [
+          "REST_HTTP",
+          "MB_TOPIC_BASED",
+          "MB_ROUTING",
+          "MB_PUBSUB",
+          "RPC",
+          "RPC_STREAMING",
+          "WEBSOCKET"
+        ],
+        "example": "REST_HTTP"
+      },
+      "protocol": {
+        "description": "The name of the protocol used. Shall be set to HTTP for a REST API.",
+        "type": "string",
+        "example": "HTTP"
+      },
+      "version": {
+        "description": "The version of the protocol used",
+        "type": "string",
+        "example": "2.0"
+      },
+      "endpoint": {
+        "description": "This type represents information about a transport endpoint",
+        "type": "object",
+        "oneOf": [
+          {
+            "description": "Entry point information of the service as string, formatted according to URI syntax",
+            "type": "object",
+            "required": [
+              "uris"
+            ],
+            "properties": {
+              "uris": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "description": "Entry point information of the service",
+                  "type": "string",
+                  "format": "uri",
+                  "example": "/mecSerMgmtApi/service/EntryPoint"
+                }
+              }
+            }
+          },
+          {
+            "description": "Entry point information of the service as one or more pairs of IP address and port",
+            "type": "object",
+            "required": [
+              "addresses"
+            ],
+            "properties": {
+              "addresses": {
+                "type": "array",
+                "minItems": 0,
+                "items": {
+                  "description": "A IP address and port pair",
+                  "type": "object",
+                  "required": [
+                    "host",
+                    "port"
+                  ],
+                  "properties": {
+                    "host": {
+                      "description": "Host portion of the address",
+                      "type": "string",
+                      "example": "192.0.2.0"
+                    },
+                    "port": {
+                      "description": "Port portion of the address",
+                      "type": "integer",
+                      "format": "uint32",
+                      "example": 8080
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "description": "Entry point information of the service in a format defined by an implementation, or in an external specification.",
+            "type": "object",
+            "required": [
+              "alternative"
+            ],
+            "properties": {
+              "alternative": {
+                "type": "object"
+              }
+            }
+          }
+        ]
+      },
+      "security": {
+        "description": "This type represents security information related to a transport",
+        "type": "object",
+        "properties": {
+          "oAuth2Info": {
+            "description": "Parameters related to use of OAuth 2.0",
+            "required": [
+              "grantTypes",
+              "tokenEndpoint"
+            ],
+            "properties": {
+              "grantTypes": {
+                "description": "List of supported OAuth 2.0 grant types.",
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 4,
+                "items": {
+                  "description": "OAuth 2.0 grant type",
+                  "type": "string",
+                  "enum": [
+                    "OAUTH2_AUTHORIZATION_CODE",
+                    "OAUTH2_IMPLICIT_GRANT",
+                    "OAUTH2_RESOURCE_OWNER",
+                    "OAUTH2_CLIENT_CREDENTIALS"
+                  ],
+                  "example": "OAUTH2_CLIENT_CREDENTIALS"
+                }
+              },
+              "tokenEndpoint": {
+                "description": "The token endpoint",
+                "type": "string",
+                "format": "uri",
+                "example": "/mecSerMgmtApi/security/TokenEndPoint"
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "implSpecificInfo": {
+        "description": "Additional implementation specific details of the transport",
+        "type": "object"
+      }
+    }
+  }
+}

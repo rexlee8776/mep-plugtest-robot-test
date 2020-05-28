@@ -1,0 +1,128 @@
+{
+              "properties": {
+                "accessPointList": {
+                  "description": "A type containing list of access points.",
+                  "type": "object",
+                  "required": [
+                    "zoneId",
+                    "resourceURL"
+                  ],
+                  "properties": {
+                    "zoneId": {
+                      "description": "Identifier of zone",
+                      "type": "string",
+                      "example": "zone01"
+                    },
+                    "accessPoint": {
+                      "description": "Collection of the access point information list.",
+                      "type": "array",
+                      "items": {
+                        "description": "A type containing access point information.",
+                        "type": "object",
+                        "required": [
+                          "accessPointId",
+                          "connectionType",
+                          "operationStatus",
+                          "numberOfUsers",
+                          "resourceURL"
+                        ],
+                        "properties": {
+                          "accessPointId": {
+                            "description": "Identifier of access point, <E-CGI><Cell Portion ID> (reference ETSI TS 129 171). Where the E-CGI is made up of the PLMN and Cell Identity (28 bit string). Then the PLMN is made up of the 3 digit MCC & 2 or 3 digit MNC. The Cell Portion is an optional element",
+                            "type": "string",
+                            "example": "001010000000000000000000000000001"
+                          },
+                          "locationInfo": {
+                            "description": "A type containing location information with latitude, longitude and altitude, in addition the accuracy of the information are provided.",
+                            "type": "object",
+                            "required": [
+                              "latitude",
+                              "longitude",
+                              "accuracy"
+                            ],
+                            "properties": {
+                              "latitude": {
+                                "type": "number",
+                                "format": "float",
+                                "example": "80.123"
+                              },
+                              "longitude": {
+                                "type": "number",
+                                "format": "float",
+                                "example": "70.123"
+                              },
+                              "altitude": {
+                                "type": "number",
+                                "format": "float",
+                                "example": "10.0"
+                              },
+                              "accuracy": {
+                                "type": "integer",
+                                "format": "int32",
+                                "example": "10"
+                              }
+                            }
+                          },
+                          "connectionType": {
+                            "description": "The connection type for the access point",
+                            "type": "string",
+                            "enum": [
+                              "Femto",
+                              "LTE-femto",
+                              "Smallcell",
+                              "LTE-smallcell",
+                              "Wifi",
+                              "Pico",
+                              "Micro",
+                              "Macro",
+                              "Wimax",
+                              "Unknown"
+                            ],
+                            "example": "Macro"
+                          },
+                          "operationStatus": {
+                            "description": "The operation status of the access point",
+                            "type": "string",
+                            "enum": [
+                              "Serviceable",
+                              "Unserviceable",
+                              "Unknown"
+                            ],
+                            "example": "Serviceable"
+                          },
+                          "numberOfUsers": {
+                            "description": "The number of users currently on the access point.",
+                            "type": "integer",
+                            "format": "uint32",
+                            "example": "7"
+                          },
+                          "timezone": {
+                            "description": "Time zone of access point",
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2017-01-01T02:51:43Z"
+                          },
+                          "interestRealm": {
+                            "description": "Interest realm of access point (e.g. geographical area, a type of industry etc.).",
+                            "type": "string",
+                            "example": "LA"
+                          },
+                          "resourceURL": {
+                            "description": "Self referring URL.",
+                            "type": "string",
+                            "format": "uri",
+                            "example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
+                          }
+                        }
+                      }
+                    },
+                    "resourceURL": {
+                      "description": "Self referring URL.",
+                      "type": "string",
+                      "format": "uri",
+                      "example": "http://example.com/exampleAPI/location/v1/subscriptions/userTracking/subscription123"
+                    }
+                  }
+                }
+              }
+            }
