@@ -24,7 +24,7 @@ TC_MEC_SRV_APPSUB_001_OK
     [Tags]    PIC_MEC_PLAT    PIC_SERVICES
     Get Subscriptions list    ${APP_INSTANCE_ID}
     Check HTTP Response Status Code Is    200
-    Check HTTP Response Body Json Schema Is    SubscriptionLinkList
+    Check HTTP Response Body Json Schema Is    SubscriptionsLinkList
 
 
 TC_MEC_SRV_APPSUB_001_NF

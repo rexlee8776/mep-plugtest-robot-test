@@ -1,0 +1,275 @@
+{
+  "type": "array",
+  "objects": {
+    "description": "This type represents the general information of a MEC service.",
+    "type": "object",
+    "required": [
+      "serName",
+      "version",
+      "state",
+      "transportInfo",
+      "serializer"
+    ],
+    "properties": {
+      "serInstanceId": {
+        "description": "Identifier of the service instance assigned by the MEC platform.",
+        "type": "string",
+        "readOnly": true,
+        "example": "ServiceInstance123"
+      },
+      "serName": {
+        "description": "The name of the service. This is how the service producing MEC application identifies the service instance it produces.",
+        "type": "string",
+        "example": "ExampleService"
+      },
+      "serCategory": {
+        "description": "This type represents the category reference",
+        "type": "object",
+        "required": [
+          "href",
+          "id",
+          "name",
+          "version"
+        ],
+        "properties": {
+          "href": {
+            "description": "Reference of the catalogue",
+            "type": "string",
+            "format": "uri",
+            "example": "/example/catalogue1"
+          },
+          "id": {
+            "description": "Unique identifier of the category",
+            "type": "string",
+            "example": "id12345"
+          },
+          "name": {
+            "description": "Name of the category, example values include RNI, Location & Bandwidth Management",
+            "type": "string",
+            "example": "RNI"
+          },
+          "version": {
+            "description": "Category version",
+            "type": "string",
+            "example": "version1"
+          }
+        }
+      },
+      "version": {
+        "description": "Service version",
+        "type": "string",
+        "example": "ServiceVersion1"
+      },
+      "state": {
+        "description": "This enumeration defines the possible states of a service.",
+        "type": "string",
+        "enum": [
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "example": "ACTIVE"
+      },
+      "transportInfo": {
+        "description": "This type represents the general information of a MEC service.",
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "type",
+          "protocol",
+          "version",
+          "endpoint",
+          "security"
+        ],
+        "properties": {
+          "id": {
+            "description": "The identifier of this transport",
+            "type": "string",
+            "example": "TransId12345"
+          },
+          "name": {
+            "description": "The name of this transport",
+            "type": "string",
+            "example": "REST"
+          },
+          "description": {
+            "description": "Human-readable description of this transport",
+            "type": "string",
+            "example": "REST API"
+          },
+          "type": {
+            "description": "The enumeration TransportType represents types of transports",
+            "type": "string",
+            "enum": [
+              "REST_HTTP",
+              "MB_TOPIC_BASED",
+              "MB_ROUTING",
+              "MB_PUBSUB",
+              "RPC",
+              "RPC_STREAMING",
+              "WEBSOCKET"
+            ],
+            "example": "REST_HTTP"
+          },
+          "protocol": {
+            "description": "The name of the protocol used. Shall be set to HTTP for a REST API.",
+            "type": "string",
+            "example": "HTTP"
+          },
+          "version": {
+            "description": "The version of the protocol used",
+            "type": "string",
+            "example": "2.0"
+          },
+          "endpoint": {
+            "description": "This type represents information about a transport endpoint",
+            "type": "object",
+            "oneOf": [
+              {
+                "description": "Entry point information of the service as string, formatted according to URI syntax",
+                "type": "object",
+                "required": [
+                  "uris"
+                ],
+                "properties": {
+                  "uris": {
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                      "description": "Entry point information of the service",
+                      "type": "string",
+                      "format": "uri",
+                      "example": "/mecSerMgmtApi/service/EntryPoint"
+                    }
+                  }
+                }
+              },
+              {
+                "description": "Entry point information of the service as one or more pairs of IP address and port",
+                "type": "object",
+                "required": [
+                  "addresses"
+                ],
+                "properties": {
+                  "addresses": {
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                      "description": "A IP address and port pair",
+                      "type": "object",
+                      "required": [
+                        "host",
+                        "port"
+                      ],
+                      "properties": {
+                        "host": {
+                          "description": "Host portion of the address",
+                          "type": "string",
+                          "example": "192.0.2.0"
+                        },
+                        "port": {
+                          "description": "Port portion of the address",
+                          "type": "integer",
+                          "format": "uint32",
+                          "example": 8080
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "description": "Entry point information of the service in a format defined by an implementation, or in an external specification.",
+                "type": "object",
+                "required": [
+                  "alternative"
+                ],
+                "properties": {
+                  "alternative": {
+                    "type": "object"
+                  }
+                }
+              }
+            ]
+          },
+          "security": {
+            "description": "This type represents security information related to a transport",
+            "type": "object",
+            "properties": {
+              "oAuth2Info": {
+                "description": "Parameters related to use of OAuth 2.0",
+                "required": [
+                  "grantTypes",
+                  "tokenEndpoint"
+                ],
+                "properties": {
+                  "grantTypes": {
+                    "description": "List of supported OAuth 2.0 grant types.",
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 4,
+                    "items": {
+                      "description": "OAuth 2.0 grant type",
+                      "type": "string",
+                      "enum": [
+                        "OAUTH2_AUTHORIZATION_CODE",
+                        "OAUTH2_IMPLICIT_GRANT",
+                        "OAUTH2_RESOURCE_OWNER",
+                        "OAUTH2_CLIENT_CREDENTIALS"
+                      ],
+                      "example": "OAUTH2_CLIENT_CREDENTIALS"
+                    }
+                  },
+                  "tokenEndpoint": {
+                    "description": "The token endpoint",
+                    "type": "string",
+                    "format": "uri",
+                    "example": "/mecSerMgmtApi/security/TokenEndPoint"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "implSpecificInfo": {
+            "description": "Additional implementation specific details of the transport",
+            "type": "object"
+          }
+        }
+      },
+      "serializer": {
+        "description": "The enumeration  represents types of serializers",
+        "type": "string",
+        "enum": [
+          "JSON",
+          "XML",
+          "PROTOBUF3"
+        ],
+        "example": "JSON"
+      },
+      "scopeOfLocality": {
+        "description": "The scope of locality as expressed by \"consumedLocalOnly\" and \"isLocal\". If absent, defaults to MEC_HOST",
+        "type": "string",
+        "enum": [
+          "MEC_SYSTEM",
+          "MEC_HOST",
+          "NFVI_POP",
+          "ZONE",
+          "ZONE_GROUP",
+          "NFVI_NODE"
+        ],
+        "example": "MEC_SYSTEM"
+      },
+      "consumedLocalOnly": {
+        "description": "Indicate whether the service can only be consumed by the MEC applications located in the same locality (as defined by scopeOfLocality) as this  service instance.",
+        "type": "boolean",
+        "example": false
+      },
+      "isLocal": {
+        "description": "Indicate whether the service is located in the same locality (as defined by scopeOfLocality) as the consuming MEC application.",
+        "type": "boolean",
+        "example": true
+      }
+    }
+  }
+}

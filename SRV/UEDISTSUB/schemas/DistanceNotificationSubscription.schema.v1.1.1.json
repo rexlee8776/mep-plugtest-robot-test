@@ -1,0 +1,147 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "distanceNotificationSubscription"
+  ],
+  "properties": {
+    "distanceNotificationSubscription": {
+      "$id": "#/properties/distanceNotificationSubscription",
+      "type": "object",
+      "title": "The Distancenotificationsubscription Schema",
+      "required": [
+        "callbackReference",
+        "checkImmediate",
+        "clientCorrelator",
+        "criteria",
+        "distance",
+        "frequency",
+        "monitoredAddress",
+        "referenceAddress",
+        "trackingAccuracy"
+      ],
+      "properties": {
+        "callbackReference": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/callbackReference",
+          "type": "object",
+          "title": "The Callbackreference Schema",
+          "required": [
+            "callbackData",
+            "notifyURL"
+          ],
+          "properties": {
+            "callbackData": {
+              "$id": "#/properties/distanceNotificationSubscription/properties/callbackReference/properties/callbackData",
+              "type": "string",
+              "title": "The Callbackdata Schema",
+              "default": "",
+              "examples": [
+                "1234"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "notifyURL": {
+              "$id": "#/properties/distanceNotificationSubscription/properties/callbackReference/properties/notifyURL",
+              "type": "string",
+              "title": "The Notifyurl Schema",
+              "default": "",
+              "examples": [
+                "http://application.example.com/notifications/distance_notifications/123456"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "checkImmediate": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/checkImmediate",
+          "type": "string",
+          "title": "The Checkimmediate Schema",
+          "default": "",
+          "examples": [
+            "true"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "clientCorrelator": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/clientCorrelator",
+          "type": "string",
+          "title": "The Clientcorrelator Schema",
+          "default": "",
+          "examples": [
+            "0123"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "criteria": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/criteria",
+          "type": "string",
+          "title": "The Criteria Schema",
+          "default": "",
+          "examples": [
+            "AllWithinDistance"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "distance": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/distance",
+          "type": "string",
+          "title": "The Distance Schema",
+          "default": "",
+          "examples": [
+            "100"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "frequency": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/frequency",
+          "type": "string",
+          "title": "The Frequency Schema",
+          "default": "",
+          "examples": [
+            "10"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "monitoredAddress": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/monitoredAddress",
+          "type": "array",
+          "title": "The Monitoredaddress Schema",
+          "items": {
+            "$id": "#/properties/distanceNotificationSubscription/properties/monitoredAddress/items",
+            "type": "string",
+            "title": "The Items Schema",
+            "default": "",
+            "examples": [
+              "acr:10.0.0.1",
+              "acr:10.0.0.2"
+            ],
+            "pattern": "^(.*)$"
+          }
+        },
+        "referenceAddress": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/referenceAddress",
+          "type": "string",
+          "title": "The Referenceaddress Schema",
+          "default": "",
+          "examples": [
+            "acr:10.0.0.3"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "trackingAccuracy": {
+          "$id": "#/properties/distanceNotificationSubscription/properties/trackingAccuracy",
+          "type": "string",
+          "title": "The Trackingaccuracy Schema",
+          "default": "",
+          "examples": [
+            "10"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}

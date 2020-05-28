@@ -1,0 +1,142 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "address",
+    "callbackReference",
+    "checkImmediate",
+    "clientCorrelator",
+    "enteringLeavingCriteria",
+    "frequency",
+    "latitude",
+    "longitude",
+    "radius",
+    "trackingAccuracy"
+  ],
+  "properties": {
+    "address": {
+      "$id": "#/properties/address",
+      "type": "string",
+      "title": "The Address Schema",
+      "default": "",
+      "examples": [
+        "acr:10.0.0.1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "callbackReference": {
+      "$id": "#/properties/callbackReference",
+      "type": "object",
+      "title": "The Callbackreference Schema",
+      "required": [
+        "callbackData",
+        "notifyURL"
+      ],
+      "properties": {
+        "callbackData": {
+          "$id": "#/properties/callbackReference/properties/callbackData",
+          "type": "string",
+          "title": "The Callbackdata Schema",
+          "default": "",
+          "examples": [
+            "1234"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "notifyURL": {
+          "$id": "#/properties/callbackReference/properties/notifyURL",
+          "type": "string",
+          "title": "The Notifyurl Schema",
+          "default": "",
+          "examples": [
+            "http://application.example.com/notifications/distance_notifications/123456"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "checkImmediate": {
+      "$id": "#/properties/checkImmediate",
+      "type": "string",
+      "title": "The Checkimmediate Schema",
+      "default": "",
+      "examples": [
+        "true"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "clientCorrelator": {
+      "$id": "#/properties/clientCorrelator",
+      "type": "string",
+      "title": "The Clientcorrelator Schema",
+      "default": "",
+      "examples": [
+        "0123"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "enteringLeavingCriteria": {
+      "$id": "#/properties/enteringLeavingCriteria",
+      "type": "string",
+      "title": "The Enteringleavingcriteria Schema",
+      "default": "",
+      "examples": [
+        "Entering"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "frequency": {
+      "$id": "#/properties/frequency",
+      "type": "string",
+      "title": "The Frequency Schema",
+      "default": "",
+      "examples": [
+        "10"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "latitude": {
+      "$id": "#/properties/latitude",
+      "type": "string",
+      "title": "The Latitude Schema",
+      "default": "",
+      "examples": [
+        "-80.86302"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "longitude": {
+      "$id": "#/properties/longitude",
+      "type": "string",
+      "title": "The Longitude Schema",
+      "default": "",
+      "examples": [
+        "41.277306"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "radius": {
+      "$id": "#/properties/radius",
+      "type": "string",
+      "title": "The Radius Schema",
+      "default": "",
+      "examples": [
+        "500"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "trackingAccuracy": {
+      "$id": "#/properties/trackingAccuracy",
+      "type": "string",
+      "title": "The Trackingaccuracy Schema",
+      "default": "",
+      "examples": [
+        "10"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

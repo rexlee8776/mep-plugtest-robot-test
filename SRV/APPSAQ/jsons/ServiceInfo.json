@@ -1,0 +1,42 @@
+{
+  "serName": "NEW_SERVICE_NAME",
+  "version": "reprehenderit Ut non commodo",
+  "state": "INACTIVE",
+  "transportInfo": {
+    "id": "labore ut Excepteur sunt ipsum",
+    "name": "in minim enim",
+    "type": "MB_ROUTING",
+    "protocol": "veniam aliqua cillum in",
+    "version": "exercitation pariatur",
+    "endpoint": {
+      "addresses": [
+        {
+          "host": "sint culpa laboris",
+          "port": 10968
+        }
+      ]
+    },
+    "security": {
+      "oAuth2Info": {
+        "grantTypes": [
+          "OAUTH2_IMPLICIT_GRANT",
+          "OAUTH2_IMPLICIT_GRANT",
+          "OAUTH2_CLIENT_CREDENTIALS"
+        ],
+        "tokenEndpoint": "https://RXjkuoqKaR.nskcJZJsyoIFJ0k86hJdxq.eTHEGqxAybM3DEZlUlYQpZ47s6RR+O9gyFrLbO92,9"
+      }
+    },
+    "description": "dolor occaecat pariatur ex do"
+  },
+  "serializer": "XML",
+  "serInstanceId": "cillum nostrud minim consectetur proident",
+  "serCategory": {
+    "href": "http://VWwswcAtAylGx.usasPjZ+bqQIHCMc7FfToVvk2M.SYAWYvSDKGSRL7Z.rxyfC0goFNZtoGJrlFc89,",
+    "id": "consectetur et eiusmod",
+    "name": "ea ipsum irure mollit et",
+    "version": "et"
+  },
+  "scopeOfLocality": "ZONE",
+  "consumedLocalOnly": true,
+  "isLocal": false
+}
